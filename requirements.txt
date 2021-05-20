@@ -1,3 +1,5 @@
 requests
 meraki-sdk
 rich
+python-dontenv
+'python-dotenv[cli]''

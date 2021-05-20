@@ -7,6 +7,12 @@ from rich.console import Console
 from rich.table import Table
 from rich.progress import track
 
+from dotenv import load_dotenv  # install python-dotenv
+
+# load_dotenv(dotenv_path=os.path.join(os.path.expanduser("~"),".meraki.env"))
+load_dotenv()
+API_apiKey = os.getenv('x_cisco_meraki_api_key')
+
 def SelectNetwork():
     # Fetch and select the organization
     print('\n\nFetching organizations...\n')
@@ -147,7 +153,7 @@ if __name__ == '__main__':
     # Debug mode
     isDebug = False
     # Initializing Meraki SDK
-    meraki = MerakiSdkClient(os.environ.get('MERAKI_KEY'))
+    meraki = MerakiSdkClient(os.getenv('x_cisco_meraki_api_key'))
     NETWORK_ID = SelectNetwork()
 
     clients_2 = []
